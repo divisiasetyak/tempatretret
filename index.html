@@ -21,6 +21,16 @@
             background: #10b981;
             border-radius: 4px;
         }
+        /* Efek transisi untuk lightbox */
+        .lightbox-enter {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        .lightbox-enter-active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 300ms, transform 300ms;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-500 selection:text-white">
@@ -46,6 +56,7 @@
 
     <main class="max-w-6xl mx-auto px-4 py-12 space-y-16">
 
+        <!-- SECTION: RINCIAN BIAYA -->
         <section class="grid md:grid-cols-2 gap-8 items-stretch">
             <div class="bg-white border border-slate-100 shadow-xl rounded-3xl p-8 flex flex-col justify-between transition-all hover:shadow-2xl">
                 <div>
@@ -93,6 +104,7 @@
             </div>
         </section>
 
+        <!-- SECTION: FASILITAS -->
         <section class="bg-white border border-slate-100 shadow-xl rounded-3xl p-8 md:p-12">
             <div class="text-center max-w-xl mx-auto mb-10">
                 <h2 class="text-3xl font-bold text-slate-900 mb-2">Fasilitas yang Didapatkan</h2>
@@ -146,6 +158,7 @@
             </div>
         </section>
 
+        <!-- SECTION: AKSES & JARAK TEMPUH -->
         <section class="space-y-6">
             <div class="text-center max-w-xl mx-auto">
                 <h2 class="text-3xl font-bold text-slate-900 mb-2">Akses & Jarak Tempuh</h2>
@@ -218,91 +231,208 @@
             </div>
         </section>
 
-        <section class="space-y-6">
+        <!-- NEW SECTION: TRANSPORTASI & BIAYA -->
+        <section class="space-y-8 pt-8">
             <div class="text-center max-w-xl mx-auto">
-                <h2 class="text-3xl font-bold text-slate-900 mb-2">Galeri Natural Hill</h2>
-                <p class="text-slate-500">Gambaran lanskap dan fasilitas alam terbuka di lokasi Lembang</p>
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">Transportasi & Biaya</h2>
+                <p class="text-slate-500">Menimbang moda transportasi yang digunakan serta estimasi biaya yang dibutuhkan</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+            <!-- Note Box -->
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 md:p-5 flex gap-4 text-amber-800 text-sm max-w-4xl mx-auto shadow-sm">
+                <span class="text-2xl shrink-0">💡</span>
+                <p class="leading-relaxed"><strong>Note:</strong> Karena asumsi biaya angkot harus menanyakan langsung ke sopir angkot dari daerah masing-masing, maka untuk kemudahan menjadikan <strong>rerata biaya taksi online per kilometer</strong> sebagai acuan untuk batas wajar perhitungan biaya angkot.</p>
+            </div>
+
+            <!-- Harga Rerata Highlight -->
+            <div class="text-center">
+                <div class="inline-flex flex-wrap justify-center items-center gap-2 bg-slate-800 text-white px-6 py-3 rounded-full shadow-lg border border-slate-700">
+                    <span class="text-slate-300 text-sm">Rerata biaya taksi online per kilometer:</span>
+                    <span class="font-bold text-emerald-400 text-lg">Rp 4.300</span>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 items-start">
+                <!-- Card Taksi Online -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-slate-100">
+                    <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-100">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-500 flex items-center justify-center text-3xl shrink-0">🚕</div>
+                        <div>
+                            <h3 class="font-bold text-xl text-slate-900">Biaya InDrive (Mobil XL)</h3>
+                            <p class="text-sm text-slate-500">Asumsi 1 mobil untuk 6 penumpang</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                            <div>
+                                <span class="font-bold text-slate-800 block">A. Dari Sekre Permana Utara</span>
+                                <span class="text-xs text-slate-500">Rp 3.900/km | Rp 5.800/orang</span>
+                            </div>
+                            <span class="font-bold text-blue-600 mt-1 sm:mt-0">Rp 70.000 PP</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                            <div>
+                                <span class="font-bold text-slate-800 block">B. Dari Sekre Sarijadi</span>
+                                <span class="text-xs text-slate-500">Rp 4.850/km | Rp 12.100/orang</span>
+                            </div>
+                            <span class="font-bold text-blue-600 mt-1 sm:mt-0">Rp 145.000 PP</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                            <div>
+                                <span class="font-bold text-slate-800 block">C. Dari Sekre Pendawa</span>
+                                <span class="text-xs text-slate-500">Rp 4.560/km | Rp 14.500/orang</span>
+                            </div>
+                            <span class="font-bold text-blue-600 mt-1 sm:mt-0">Rp 173.000 PP</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                            <div>
+                                <span class="font-bold text-slate-800 block">D. Dari Sekre Sekepanjang</span>
+                                <span class="text-xs text-slate-500">Rp 3.880/km | Rp 16.200/orang</span>
+                            </div>
+                            <span class="font-bold text-blue-600 mt-1 sm:mt-0">Rp 194.000 PP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Angkot -->
+                <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-slate-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-10"></div>
+                    <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-100">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl shrink-0">🚐</div>
+                        <div>
+                            <h3 class="font-bold text-xl text-slate-900">Estimasi Biaya Angkot</h3>
+                            <p class="text-sm text-slate-500">Berdasarkan acuan rerata taksi online</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                            <div>
+                                <span class="font-bold text-slate-800 block">A. Dari Sekre Permana Utara</span>
+                                <span class="text-xs text-slate-500">(18km PP) × Rp 4.300 = Rp 77.400</span>
+                            </div>
+                            <span class="font-bold text-emerald-600 mt-1 sm:mt-0">~ Rp 80.000 /angkot</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                            <div>
+                                <span class="font-bold text-slate-800 block">B. Dari Sekre Sarijadi</span>
+                                <span class="text-xs text-slate-500">(30km PP) × Rp 4.300 = Rp 129.000</span>
+                            </div>
+                            <span class="font-bold text-emerald-600 mt-1 sm:mt-0">~ Rp 130.000 /angkot</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                            <div>
+                                <span class="font-bold text-slate-800 block">C. Dari Sekre Pendawa</span>
+                                <span class="text-xs text-slate-500">(38km PP) × Rp 4.300 = Rp 163.400</span>
+                            </div>
+                            <span class="font-bold text-emerald-600 mt-1 sm:mt-0">~ Rp 165.000 /angkot</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                            <div>
+                                <span class="font-bold text-slate-800 block">D. Dari Sekre Sekepanjang</span>
+                                <span class="text-xs text-slate-500">(50km PP) × Rp 4.300 = Rp 215.000</span>
+                            </div>
+                            <span class="font-bold text-emerald-600 mt-1 sm:mt-0">~ Rp 215.000 /angkot</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-dashed border-slate-200">
+                        <p class="text-xs text-slate-500 leading-relaxed text-center">
+                            Total biaya transportasi menggunakan angkot tiap daerah bergantung pada berapa angkot yang dipesan. <strong class="text-slate-700">Asumsi 1 angkot dapat menampung hingga 15 orang.</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: GALERI -->
+        <section class="space-y-6 pt-8">
+            <div class="text-center max-w-xl mx-auto">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">Galeri Natural Hill Cisarua Lembang</h2>
+                <p class="text-slate-500">Gambaran lanskap dan fasilitas alam terbuka di lokasi berdasarkan tinjauan langsung</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6" id="gallery-container">
                 
-                <div class="group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+                <!-- Added "gallery-item" and "cursor-pointer" classes to all images -->
+                <div class="gallery-item cursor-pointer group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
                     <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="hall.jpg" alt="Area Lapangan" 
                          onerror="this.src='https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80&w=600'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                        <p class="text-white font-semibold text-sm tracking-wide">Hall Pertemuan Rose</p>
+                        <p class="caption-text text-white font-semibold text-sm tracking-wide">Hall Pertemuan Rose</p>
                     </div>
                 </div>
 
-                <div class="group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+                <div class="gallery-item cursor-pointer group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
                     <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="lapang.jpg" alt="Hall Pertemuan"
                          onerror="this.src='https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&q=80&w=600'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                        <p class="text-white font-semibold text-sm tracking-wide">Lapangan terbuka hijau</p>
+                        <p class="caption-text text-white font-semibold text-sm tracking-wide">Lapangan terbuka hijau</p>
                     </div>
                 </div>
 
-                <div class="group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+                <div class="gallery-item cursor-pointer group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
                     <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="gazebo.jpg" alt="Akses Curug"
                          onerror="this.src='https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=600'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                        <p class="text-white font-semibold text-sm tracking-wide">Gazebo</p>
+                        <p class="caption-text text-white font-semibold text-sm tracking-wide">Gazebo</p>
                     </div>
                 </div>
 
-                <div class="group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+                <div class="gallery-item cursor-pointer group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
                     <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="toilet.jpg" alt="Suasana Malam"
                          onerror="this.src='https://images.unsplash.com/photo-1533240332313-0db49b459ad6?auto=format&fit=crop&q=80&w=600'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                        <p class="text-white font-semibold text-sm tracking-wide">Toilet khusus laki-laki dan perempuan</p>
+                        <p class="caption-text text-white font-semibold text-sm tracking-wide">Toilet khusus laki-laki dan perempuan</p>
                     </div>
                 </div>
 
-                <div class="group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+                <div class="gallery-item cursor-pointer group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
                     <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="wudhu.jpg" alt="Suasana Malam"
                          onerror="this.src='https://images.unsplash.com/photo-1533240332313-0db49b459ad6?auto=format&fit=crop&q=80&w=600'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                        <p class="text-white font-semibold text-sm tracking-wide">Tempat wudhu sharing</p>
+                        <p class="caption-text text-white font-semibold text-sm tracking-wide">Tempat wudhu sharing</p>
                     </div>
                 </div>
 
-                <div class="group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+                <div class="gallery-item cursor-pointer group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
                     <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="mushola.jpg" alt="Suasana Malam"
                          onerror="this.src='https://images.unsplash.com/photo-1533240332313-0db49b459ad6?auto=format&fit=crop&q=80&w=600'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                        <p class="text-white font-semibold text-sm tracking-wide">Mushola</p>
+                        <p class="caption-text text-white font-semibold text-sm tracking-wide">Mushola</p>
                     </div>
                 </div>
 
-                <div class="group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+                <div class="gallery-item cursor-pointer group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
                     <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="lorong.jpg" alt="Suasana Malam"
                          onerror="this.src='https://images.unsplash.com/photo-1533240332313-0db49b459ad6?auto=format&fit=crop&q=80&w=600'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                        <p class="text-white font-semibold text-sm tracking-wide">Koridor menuju hall</p>
+                        <p class="caption-text text-white font-semibold text-sm tracking-wide">Koridor menuju hall</p>
                     </div>
                 </div>
 
-                <div class="group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+                <div class="gallery-item cursor-pointer group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
                     <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="lobby.jpg" alt="Suasana Malam"
                          onerror="this.src='https://images.unsplash.com/photo-1533240332313-0db49b459ad6?auto=format&fit=crop&q=80&w=600'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                        <p class="text-white font-semibold text-sm tracking-wide">Lobby</p>
+                        <p class="caption-text text-white font-semibold text-sm tracking-wide">Lobby</p>
                     </div>
                 </div>
 
-                <div class="group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+                <div class="gallery-item cursor-pointer group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
                     <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="pmobil.jpg" alt="Suasana Malam"
                          onerror="this.src='https://images.unsplash.com/photo-1533240332313-0db49b459ad6?auto=format&fit=crop&q=80&w=600'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                        <p class="text-white font-semibold text-sm tracking-wide">Area parkir mobil</p>
+                        <p class="caption-text text-white font-semibold text-sm tracking-wide">Area parkir mobil</p>
                     </div>
                 </div>
 
-                <div class="group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+                <div class="gallery-item cursor-pointer group relative aspect-[4/3] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all">
                     <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="pmotor.jpg" alt="Suasana Malam"
                          onerror="this.src='https://images.unsplash.com/photo-1533240332313-0db49b459ad6?auto=format&fit=crop&q=80&w=600'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                        <p class="text-white font-semibold text-sm tracking-wide">Area parkir motor</p>
+                        <p class="caption-text text-white font-semibold text-sm tracking-wide">Area parkir motor</p>
                     </div>
                 </div>
 
@@ -312,8 +442,134 @@
     </main>
 
     <footer class="text-center py-8 text-sm text-slate-400 border-t border-slate-100 bg-white mt-12">
-        <p>&copy; 2026 Tim Survey</p>
+        <p>&copy; 2026 Ann Gi Hyun</p>
     </footer>
 
+    <!-- LIGHTBOX / FULLSCREEN SLIDER UI -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/95 hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm">
+        
+        <!-- Header Info & Close -->
+        <div class="absolute top-0 left-0 right-0 p-4 md:p-6 flex justify-between items-start z-50 pointer-events-none">
+            <div id="lightbox-counter" class="text-white/70 text-sm font-medium tracking-widest bg-black/50 px-4 py-2 rounded-full backdrop-blur-md border border-white/10 pointer-events-auto">
+                1 / 10
+            </div>
+            <button onclick="closeLightbox()" class="text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full backdrop-blur-md border border-white/10 transition-all pointer-events-auto group">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <button onclick="prevImage(event)" class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-white bg-black/50 hover:bg-black/80 p-3 md:p-4 rounded-full backdrop-blur-md border border-white/10 transition-all z-50 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        
+        <button onclick="nextImage(event)" class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-white bg-black/50 hover:bg-black/80 p-3 md:p-4 rounded-full backdrop-blur-md border border-white/10 transition-all z-50 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+
+        <!-- Main Image -->
+        <div class="relative w-full h-full flex flex-col justify-center items-center p-4 md:p-16" onclick="closeLightbox()">
+            <img id="lightbox-img" src="" class="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl transition-transform duration-300 cursor-default" alt="Full screen preview" onclick="event.stopPropagation()">
+            
+            <!-- Caption -->
+            <div id="lightbox-caption" class="mt-6 text-center text-white md:text-lg font-medium tracking-wide bg-black/50 px-6 py-3 rounded-2xl backdrop-blur-md border border-white/10 max-w-2xl" onclick="event.stopPropagation()">
+                Caption here
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT FOR LIGHTBOX -->
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        let currentImageIndex = 0;
+        const imagesData = [];
+
+        // Kumpulkan data gambar dari HTML yang ada
+        galleryItems.forEach((item, index) => {
+            const imgEl = item.querySelector('img');
+            const captionEl = item.querySelector('.caption-text');
+            
+            imagesData.push({
+                src: imgEl.src,
+                caption: captionEl ? captionEl.innerText : 'Gambar Galeri'
+            });
+
+            // Tambahkan event listener click ke setiap item galeri
+            item.addEventListener('click', () => {
+                openLightbox(index);
+            });
+        });
+
+        function updateLightboxInfo() {
+            lightboxImg.src = imagesData[currentImageIndex].src;
+            lightboxCaption.innerText = imagesData[currentImageIndex].caption;
+            lightboxCounter.innerText = `${currentImageIndex + 1} / ${imagesData.length}`;
+            
+            // Animasi kecil saat ganti gambar
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95', 'opacity-50');
+            setTimeout(() => {
+                lightboxImg.classList.remove('scale-95', 'opacity-50');
+                lightboxImg.classList.add('scale-100');
+            }, 50);
+        }
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightboxInfo();
+            
+            lightbox.classList.remove('hidden');
+            // Mencegah scroll pada body
+            document.body.style.overflow = 'hidden';
+            
+            // Trigger efek transisi masuk
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+            }, 10);
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0');
+            document.body.style.overflow = 'auto'; // Kembalikan scroll
+            
+            // Tunggu animasi selesai baru di-hide
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightboxImg.src = ''; // Clear source
+            }, 300);
+        }
+
+        function nextImage(event) {
+            if(event) event.stopPropagation();
+            currentImageIndex = (currentImageIndex + 1) % imagesData.length;
+            updateLightboxInfo();
+        }
+
+        function prevImage(event) {
+            if(event) event.stopPropagation();
+            currentImageIndex = (currentImageIndex - 1 + imagesData.length) % imagesData.length;
+            updateLightboxInfo();
+        }
+
+        // Dukungan Navigasi Keyboard
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+            }
+        });
+    </script>
 </body>
 </html>
